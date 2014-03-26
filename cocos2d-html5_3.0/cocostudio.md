@@ -1,4 +1,4 @@
-gui
+cocostudio
 ===================
 
 # cocostudio编辑器改进构想
@@ -49,4 +49,13 @@ btnClose.addTouchEventListener(function(){
 
 ```
 var btnClose = widget.getWidget("btnClose");
+```
+
+
+# GUITest问题
+
+个人觉得，如果是单纯只是GUI的测试例，那么就不该添加ccs的东西，例如以下代码：
+
+```
+var widget = ccs.uiReader.widgetFromJsonFile("res/cocosui/UITest/UITest.json");
 ```
