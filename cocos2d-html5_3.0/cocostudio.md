@@ -59,3 +59,17 @@ var btnClose = widget.getWidget("btnClose");
 ```
 var widget = ccs.uiReader.widgetFromJsonFile("res/cocosui/UITest/UITest.json");
 ```
+
+# ccui.Button事件注册
+
+ccui.Button的事件注册感觉有点需要改进下，就是应该可以支持只传一个function。
+
+现在是这样的：
+
+```
+btnClose.addTouchEventListener(function(){
+    console.log("close!!!")
+}, target);
+```
+
+这种情况下有点鸡肋，因为我压根就不想要这个target的。
