@@ -73,3 +73,30 @@ btnClose.addTouchEventListener(function(){
 ```
 
 这种情况下有点鸡肋，因为我压根就不想要这个target的。
+
+
+# ccs 导出的资源文件问题
+
+这点主要是H5有问题，因为H5需要preload资源。
+
+ccs导出资源时，有个模式时导出使用大图。我使用了ccs构建了多个ui widget，由于分辨率，所以会需要导出多套资源。
+
+导出的时候，所以的图片都打包在一起了，然后由于每张图片有最大个数限制，这样，导出的图片就不一样了（名字），例如：
+
+```
+2048:
+Project0.png
+Project0.plist
+Project1.png
+Project1.plist
+
+1024:
+Project0.png
+Project0.plist
+```
+
+由于`2048`的图片比较大，超过了每张允许的最大尺寸，所以会分成两张图片。而`1024`的刚刚好一张就行了。
+
+这么一来，我进行preload资源的时候就非常麻烦，尤其是随着项目的开发进行，图片肯定越来越多，那我就要注意我preload的资源才行。
+
+最后是，我加载`ccs`的exportJson文件的时候，引擎能够动态的帮忙加载。
